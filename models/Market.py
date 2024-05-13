@@ -2,6 +2,8 @@
 from pydantic import BaseModel
 
 
+# TODO: Market must follow  ISO 3166-1 alpha-2 country code.
+# It should rather be stored in a database and fetched from there.
 class Market(BaseModel):
 
     def __init__(self, countryCode: str, name: str, currency: str):

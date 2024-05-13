@@ -1,0 +1,14 @@
+# Dockerfile
+FROM python:3.12.3
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+COPY . .
+
+ENV SPOTIFY_TOKEN=1POdFZRZbvb...qqillRxMr2z
+ENV APPLE_MUSIC_TOKEN=eyJhbGciOiJFUzI1NiIsImtpZCI6IjNHM0ZOV0ZIM1ciLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJRNDc0M1Y2M1NCIiwiZXhwIjoxNzE3MTY1MDkwLCJpYXQiOjE3MTQ1NzMwOTB9.A7m0XMyXw6d4UiYgey5r83piEmBOYTPh-M8BBMiZYXYIKkHkNxNP3IXXY8sfU-EZjECyT2cstwheKv8tO31MXw
+
+CMD ["python", "Main.py"]
