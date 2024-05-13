@@ -1,7 +1,7 @@
 # models/AppleRelationships.py
 from pydantic import BaseModel
 
-from models.AppleData import AppleAlbumData, AppleArtistData
+from models.Apple.Data import Album, Artist
 
 
 class Href(BaseModel):
@@ -15,11 +15,11 @@ class Href(BaseModel):
         return self._value
 
 
-class AppleRelationships(BaseModel):
+class Relationships(BaseModel):
     def __init__(
         self,
-        _albums: tuple[list[AppleAlbumData], Href],
-        _artists: tuple[list[AppleArtistData], Href],
+        _albums: tuple[list[Album], Href],
+        _artists: tuple[list[Artist], Href],
     ):
         self._albums = _albums
         self._artists = _artists

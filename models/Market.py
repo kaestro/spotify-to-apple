@@ -3,9 +3,6 @@ from pydantic import BaseModel
 
 
 class Market(BaseModel):
-    _countryCode: str
-    _marketName: str
-    _currency: str
 
     def __init__(self, countryCode: str, name: str, currency: str):
         self._countryCode = countryCode

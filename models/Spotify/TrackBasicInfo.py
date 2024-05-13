@@ -1,8 +1,8 @@
 from pydantic import BaseModel
-from models.Album import Album
+from models.Spotify.Album import Album
 
 
-class SpotifyTrackBasicInfo(BaseModel):
+class TrackBasicInfo(BaseModel):
 
     def __init__(
         self,

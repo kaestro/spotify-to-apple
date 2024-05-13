@@ -3,10 +3,7 @@ from pydantic import BaseModel
 from enums.DataType import DataType
 
 
-class AppleData(BaseModel):
-    _id: int
-    _href: str
-    _type: DataType
+class Data(BaseModel):
 
     def __init__(self, _id: int, _href: str, _type: DataType):
         self._id = _id
@@ -14,13 +11,13 @@ class AppleData(BaseModel):
         self._type = _type
 
 
-class AppleAlbumData(AppleData):
+class Album(Data):
 
     def __init__(self, _id: int, _href: str):
         super().__init__(_id, _href, DataType.ALBUM)
 
 
-class AppleArtistData(AppleData):
+class Artist(Data):
 
     def __init__(self, _id: int, _href: str):
         super().__init__(_id, _href, DataType.ARTIST)

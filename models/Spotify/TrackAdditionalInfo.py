@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from models.Market import Market
-from models.ExternalUrl import ExternalUrls
+from models.Spotify.ExternalUrl import ExternalUrls
 from enums.DatePrecision import DatePrecision
 
 
@@ -61,7 +61,7 @@ class TrackMetadata:
         return self._release_date_precision
 
 
-class SpotifyTrackAdditionalInfo(BaseModel):
+class TrackAdditionalInfo(BaseModel):
     def __init__(self, details: TrackDetails, metadata: TrackMetadata):
         self._details = details
         self._metadata = metadata

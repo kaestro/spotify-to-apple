@@ -1,11 +1,11 @@
 from enums.DataType import DataType
-from models.Track import Track
-from models.AppleRelationships import AppleRelationships
-from models.Attributes import AppleAttributes
-from models.Equivalent import Equivalent
+from models.Apple.Relationships import Relationships
+from models.TrackBase import TrackBase
+from models.Apple.Attributes import AppleAttributes
+from models.Apple.Equivalent import Equivalent
 
 
-class AppleMusicTrack(Track):
+class Track(TrackBase):
 
     _HOME_URL = "https://music.apple.com/"
 
@@ -14,10 +14,10 @@ class AppleMusicTrack(Track):
         id: int,
         attrs: AppleAttributes,
         equi: list[Equivalent],
-        rel: AppleRelationships,
+        rel: Relationships,
         country: str = "us",
     ):
-        self._BASE_URL = AppleMusicTrack._HOME_URL + country + "/album/"
+        self._BASE_URL = Track._HOME_URL + country + "/album/"
         super().__init__(str(id), self._BASE_URL + str(id), DataType.TRACK)
         self.set_apple_music_id(id)
         self._attributes = attrs
