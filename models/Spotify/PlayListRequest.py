@@ -1,13 +1,8 @@
-# models/PlayList.py
-from pydantic import BaseModel
 from models.Market import Market
+from models.PlayListRequest import PlaylistRequest
 
 
-class Playlist(BaseModel):
-    pass
-
-
-class SpotifyPlayList(Playlist):
+class PlayListRequest(PlaylistRequest):
     def __init__(
         self,
         playlist_id: str,
