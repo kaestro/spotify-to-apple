@@ -1,4 +1,4 @@
-# models/ArtistType.py
+# enums/ArtistType.py
 from enum import Enum
 
 

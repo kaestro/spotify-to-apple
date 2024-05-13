@@ -1,7 +1,7 @@
 # models/Artists.py
 from pydantic import BaseModel
-from .ExternalUrl import ExternalUrls
-from .ArtistType import ArtistType
+from models.ExternalUrl import ExternalUrls
+from enums.ArtistType import ArtistType
 
 
 class Artist(BaseModel):

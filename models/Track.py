@@ -1,10 +1,11 @@
 # model/Music.py
 from pydantic import BaseModel
 
-from models.DatePrecision import DatePrecision
 from models.Market import Market
 from models.ExternalUrl import ExternalUrls
-from .Album import Album
+from models.Album import Album
+
+from enums.DatePrecision import DatePrecision
 
 
 class Track(BaseModel):

@@ -2,12 +2,13 @@
 from click import DateTime
 from pydantic import BaseModel
 
-from .Artist import Artist
-from .ExternalUrl import ExternalUrls
-from .Market import Market
-from .DatePrecision import DatePrecision
-from .Image import Image
-from .AlbumType import AlbumType
+from models.Artist import Artist
+from models.ExternalUrl import ExternalUrls
+from models.Market import Market
+from models.Image import Image
+
+from enums.DatePrecision import DatePrecision
+from enums.AlbumType import AlbumType
 
 
 class Album(BaseModel):

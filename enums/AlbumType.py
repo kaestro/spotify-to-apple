@@ -1,4 +1,4 @@
-# models/AlbumType.py
+# enums/AlbumType.py
 from enum import Enum
 
 
