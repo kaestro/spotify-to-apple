@@ -1,34 +1,45 @@
 # model/Music.py
+from click import DateTime
 from pydantic import BaseModel
 
+from models.Attributes import Attributes
+from models.Equivalent import Equivalent
 from models.Market import Market
 from models.ExternalUrl import ExternalUrls
 from models.Album import Album
 
 from enums.DatePrecision import DatePrecision
+from enums.TrackType import TrackType
 
 
 class Track(BaseModel):
-    id: str
-    description: str
+    _id: str
 
 
-class AppleMusic(Track):
-    _artist: str
-    _album: str
-    _track: str
-    _duration: int
-    _genre: str
-    _release_date: str
-    _artwork: str
+class AppleMusicTrack(Track):
+    _id: str
+    _apple_music_id: int
+    _href: str
+    _type: TrackType
+
+    _attributes: Attributes.AppleAttributes
+
+    _equivalents: list[Equivalent]
+
+    def _set_id(self):
+        self._id = str(self._apple_music_id)
+
+    def set_apple_music_id(self, apple_music_id: int):
+        self._apple_music_id = apple_music_id
+        self._set_id()
 
 
-class SpotifyMusic(Track):
+class SpotifyTrack(Track):
     _id: str
     _uri: str
     _href: str
     _name: str
-    _type: str
+    _type: TrackType
     _album: Album
     _artists: list[str]
     _explicit: bool
