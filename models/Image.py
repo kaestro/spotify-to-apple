@@ -16,3 +16,11 @@ class Image(BaseModel):
 
     def get_height(self):
         return self._height
+
+
+def response_json_to_image(response_json: dict):
+    return Image(
+        response_json["url"],
+        response_json["width"],
+        response_json["height"],
+    )

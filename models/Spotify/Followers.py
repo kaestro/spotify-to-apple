@@ -11,3 +11,10 @@ class Followers:
 
     def getTotal(self):
         return self._total
+
+
+def response_json_to_followers(response_json: dict):
+    return Followers(
+        response_json["total"],
+        response_json["href"],
+    )

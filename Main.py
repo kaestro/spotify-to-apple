@@ -1,6 +1,6 @@
 # Main.py
 from fastapi import FastAPI
-from API.Routes import get_spotify_playlist
+from API.Handlers import get_spotify_playlist
 
 app = FastAPI()
 

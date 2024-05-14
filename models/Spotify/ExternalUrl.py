@@ -22,3 +22,10 @@ class ExternalUrls(BaseModel):
 
     def addExternalUrl(self, externalUrl: ExternalUrl):
         self._external_urls[externalUrl.getPlatformName()] = externalUrl.getUrl()
+
+
+def response_json_to_external_urls(response_json: dict):
+    external_urls = ExternalUrls()
+    for key, value in response_json.items():
+        external_urls.addExternalUrl(ExternalUrl(key, value))
+    return external_urls

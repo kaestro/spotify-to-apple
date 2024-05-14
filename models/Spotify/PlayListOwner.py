@@ -2,8 +2,8 @@
 from pydantic import BaseModel
 
 from enums.OwnerType import OwnerType
-from models.Spotify.ExternalUrl import ExternalUrls
-from models.Spotify.Followers import Followers
+from models.Spotify.ExternalUrl import ExternalUrls, response_json_to_external_urls
+from models.Spotify.Followers import Followers, response_json_to_followers
 
 
 class PlayListOwner(BaseModel):
@@ -52,3 +52,14 @@ class PlayListOwner(BaseModel):
     @property
     def display_name(self):
         return self._display_name
+
+
+def response_json_to_play_list_owner(response_json: dict):
+    return PlayListOwner(
+        external_urls=response_json_to_external_urls(response_json["external_urls"]),
+        followers=response_json_to_followers(response_json["followers"]),
+        href=response_json["href"],
+        id=response_json["id"],
+        uri=response_json["uri"],
+        display_name=response_json["display_name"],
+    )
